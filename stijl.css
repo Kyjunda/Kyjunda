@@ -1,0 +1,269 @@
+/* licht groen: #E5FCC2
+groen: #9DE0AD
+blauw: #45ADA8
+donker blauw: #547980
+zwart:  #594F4F
+*/
+
+body{
+  background-image: linear-gradient(#E5FCC2, #547980 );
+  font-family: 'Syncopate', sans-serif;
+}
+/*navigatie*/
+nav{
+  width: 100%;
+  height: 0rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #45ADA8;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top:0;
+  z-index: 1;
+  transition-property: height;
+  transition-duration: 0.5s;
+  overflow: hidden;
+}
+.open{
+  height: 100vh;
+}
+nav a{
+  text-decoration: none;
+  color: white;
+  font-size: 5rem;
+  font-family: 'Syncopate', sans-serif;
+}
+nav a:hover{
+  text-decoration: underline;
+}
+
+/*introafb + naam*/
+.achtergrondKleur{
+  background-color: #594F4F;
+  width: 100%;
+  height: 70vw;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Syncopate', sans-serif;
+  justify-content: center;
+  align-items: center;
+}
+h1{
+  font-size: 5rem;
+  padding-left: 2rem;
+  align-items: center;
+  border-left: 3px solid #45ADA8;
+  color: white
+
+}
+h2{
+  position: relative;
+  left:11.7rem;
+  font-size: 2.3rem;
+  color: #45ADA8;
+}
+
+
+/*hamburger*/
+.hamburger{
+  display: inline-block;
+  cursor:  context-menu;
+  position: absolute;
+  top:1.5rem;
+  right: 1.5rem;
+  z-index: 2;
+  transition-property: all;
+  transition-duration: 1s;
+}
+.hamburgerFixed{
+  position: fixed;
+  animation: verschijn 1s ease;
+
+}
+@keyframes verschijn {
+  0%{opacity:0}
+  100%{opacity:100}
+}
+.bar1, .bar2, .bar3{
+  width: 3.5rem;
+  height: 0.5rem;
+  background-color: black;
+  margin: 0.6rem 0;
+  transition: 0.4s ease;
+}
+.change .bar1{
+  transform:rotate(-45deg) translate(-7px, 4px);
+}
+.change .bar2{
+  opacity: 0
+}
+.change .bar3{
+  transform:rotate(45deg) translate(-10px, -10px);
+}
+
+/*sliding muur*/
+
+.muur {
+  height: 59rem;
+  overflow: hidden;
+}
+
+.muurVerschuiving {
+  background-image: url("afbeeldingen//Artboard 1.png");
+  height: 59rem;
+  width: 450rem;
+  animation: slide 15s linear infinite;
+}
+
+@keyframes slide{
+  0%{
+    transform: translate3d(0, 0, 0);
+  }
+  100%{
+    transform: translate3d(-3192px, 0, 0);
+  }
+}
+
+/*Gallerij*/
+
+.verzameling{
+  width: 90vw;
+  margin: 2rem auto;
+}
+h3{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 4vw;
+  margin-top: 3rem;
+}
+img{
+  width: 100%;
+}
+.foto{
+  margin-bottom: 1rem;
+}
+
+.foto{
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+}
+.foto:nth-child(1){
+  background-image: url(afbeeldingen//afb1.png);
+}
+.foto:nth-child(2){
+  background-image: url(afbeeldingen//afb2.jpg);
+}
+.foto:nth-child(3){
+  background-image: url(afbeeldingen//afb3.jpg);
+}
+.foto:nth-child(4){
+  background-image: url(afbeeldingen//afb4.jpg);
+}
+.meer{
+  width: 90vw;
+  height: 3rem;
+  text-align: center;
+  margin: 3rem auto 2rem;
+  background-image: linear-gradient(#9DE0AD, #45ADA8);
+  padding-top: 1rem;
+}
+.meer a{
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #594F4F;
+}
+.meer:hover{
+  background-image: linear-gradient( #45ADA8, #9DE0AD);
+
+}
+
+
+
+
+
+
+
+
+
+@media (min-width:700px) {
+  .open{
+    height: 100vh;
+  }
+  header{
+    display: grid;
+    grid-template-columns: 70vw 30vw;
+  }
+  /*naam+ intro afb*/
+  .achtergrondKleur{
+    height: 50vw;
+    transition-property: backgroundImage;
+    transition-duration: 1s;
+  }
+  .achtergrondafb {
+    height: 50vw;
+  }
+  .achtergrondafb img{
+    height: 100%;
+    width:160%;
+    transition-property: all;
+    transition-duration: 1s;
+    filter: grayscale();
+  }
+  h1{
+    font-size: 6.5rem;
+    padding-left: 2rem;
+  }
+  h2{
+    left:17.2rem;
+  }
+/*navigatie*/
+  nav a{
+    transition-property: all;
+    transition-duration: 0.3s;
+  }
+  nav a:hover{
+    font-size: 5.5rem;
+  }
+  /*gallerij*/
+
+  h3 {
+    grid-column: 1/3;
+    font-size: 3rem;
+  }
+  .verzameling{
+    column-count: 2;
+    column-gap: 2rem
+  }
+
+  .foto{
+    margin-bottom: 2rem;
+  }
+
+}
+@media (min-width:1200px) {
+
+  .verzameling{
+  column-count: 4
+  }
+  .foto{
+    overflow: hidden;
+  }
+  img{
+    width: 100%;
+  }
+
+  h1{
+    font-size: 10rem;
+    padding-left: 2rem;
+  }
+  h2{
+    left:24.3rem;
+    font-size: 4rem;
+  }
+  h3{
+    margin-left: 4.3vw;
+  }
+}
